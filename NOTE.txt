@@ -1,0 +1,51 @@
+*ref to ..\tutorial\modelSim_tutorial_mit.pdf
+
+Progress: 
+  I don't know if FAA.v works, in fact, all the files are possibly deprecated, since there were no test data
+
+  MAC_4bit.v: less error right now -> check from the source again
+
+
+environment:
+  from the command line: 
+    run "vlib work" to set up the environment for modelsim to work
+    , a "work" dir would be created if the execution succeeded
+
+
+technique:
+
+
+should we use "And" gate instead? : https://hom-wang.gitbooks.io/verilog-hdl/content/Chapter_03.html
+
+print in verilog: https://stackoverflow.com/questions/33653121/using-display-in-verilog
+
+module A(a,b,c);
+  input  a,b;
+  output c;
+
+  assign c = a&b;
+
+  always @*
+    $display("%b",c);
+endmodule
+
+or
+
+// inside the module
+always @* begin
+  $display("%b",c);
+end
+
+or, after each stimulus step
+
+initial begin
+  #0 a=1'b0;b=1'b0;         
+  #1 $display("%b",c);
+
+  #3 a=1'b0;b=1'b0; 
+  #1 $display("%b",c);
+
+  #3 a=1'b0;b=1'b0; 
+  #1 $display("%b",c);
+end
+

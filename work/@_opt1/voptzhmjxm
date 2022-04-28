@@ -1,0 +1,120 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\Kelvin\Desktop\seninfo\AIchipEE\hw4\NEW\AOC_Assignment4\testcircuit
+T_opt
+V@[W9X@`geK2=3@`z`TMHi1
+04 11 4 work MAC_4bit_tb fast 0
+=1-00d86185e583-6269eebf-d6-5764
+Z1 o-quiet -auto_acc_if_foreign -work work
+n@_opt
+Z2 OL;O;10.1c;51
+Z3 dC:\Users\Kelvin\Desktop\seninfo\AIchipEE\hw4\NEW\AOC_Assignment4\testcircuit
+T_opt1
+V@Vn[e5]0^E]l9?YiZI>6:0
+04 8 4 work MAC_4bit fast 0
+=1-00d86185e583-626a88ae-330-5ff4
+R1
+n@_opt1
+R2
+vFA
+!s100 jG5N:aK<5N:2lL1_c@AS<3
+I3W88>1KUcJ@V4f6nj=F6d2
+VA=^?l^TdCln53;9]G:Cm53
+R3
+Z4 w1651148966
+FFA.v
+Z5 8MAC_4bit.v
+Z6 FMAC_4bit.v
+L0 3
+Z7 OL;L;10.1c;51
+r1
+31
+Z8 !s108 1651148971.136000
+Z9 !s107 FA.v|HA.v|MAC_4bit.v|
+Z10 !s90 MAC_4bit.v|
+Z11 o-L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
+n@f@a
+!i10b 1
+!s85 0
+vFAA
+IFAHIAPz^e5omXJ`M8<PNP3
+VESdYoOzP6Qn1N>1nA;G@03
+R3
+w1651027499
+8FAA.v
+FFAA.v
+L0 2
+R7
+r1
+31
+R11
+n@f@a@a
+!s100 9HeVBa1B5[SoVRl]U]G[I3
+!s90 FAA.v|
+!s108 1651027519.736000
+!s107 FAA.v|
+!i10b 1
+!s85 0
+vHA
+!s100 ;mV?L0oLK^@Gf:I6m`LTZ1
+IldV<hi>R[gg:T76;^nl7=1
+VjVbTeDXS3K5<`PK@jKiD[0
+R3
+R4
+FHA.v
+R5
+R6
+L0 11
+R7
+r1
+31
+R8
+R9
+R10
+R11
+n@h@a
+!i10b 1
+!s85 0
+vMAC_4bit
+I7X0XTfmQe448JN7<P>YHS1
+VG_SH>YK1PUC4ab]N:W4cP0
+R3
+R4
+R5
+R6
+L0 5
+R7
+r1
+31
+R8
+R9
+R10
+R11
+n@m@a@c_4bit
+!i10b 1
+!s100 lhaSU3ja?PNKWfkb9hg^E3
+!s85 0
+vMAC_4bit_tb
+DXx6 sv_std 3 std 0 22 F[19LRNL:5;XmIFh[XOPn1
+VNWdc2m1Z`4]JUJhK00GnF0
+r1
+31
+IblajHHonJn?2z20c12JJS2
+S1
+R3
+w1651027678
+8C:/Users/Kelvin/Desktop/seninfo/AIchipEE/hw4/NEW/AOC_Assignment4/testcircuit/MAC_4bit_tb.sv
+FC:/Users/Kelvin/Desktop/seninfo/AIchipEE/hw4/NEW/AOC_Assignment4/testcircuit/MAC_4bit_tb.sv
+L0 4
+R7
+o-work work -sv -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
+n@m@a@c_4bit_tb
+!s105 MAC_4bit_tb_sv_unit
+!s108 1651109271.979000
+!s107 FA.v|HA.v|MAC_4bit.v|C:/Users/Kelvin/Desktop/seninfo/AIchipEE/hw4/NEW/AOC_Assignment4/testcircuit/MAC_4bit_tb.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|C:/Users/Kelvin/Desktop/seninfo/AIchipEE/hw4/NEW/AOC_Assignment4/testcircuit/MAC_4bit_tb.sv|
+!s100 U78a^]<kXB0W=CP^o[4UN2
+!s85 0
+!i10b 1

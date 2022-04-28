@@ -21,7 +21,7 @@ since we can only do one bit at a time
 
 // a * b
 // do And operation BIT BY BIT
-//wire mid0, mid1, mid2, mid3, mid4, mid5, mid6, mid7, mid8, mid9, mid10, mid11, mid12, mid13, mid14, mid15;
+// 16 pink dots
 wire mid[15:0];
 assign mid[0] = a[0] & b[0];
 assign mid[1] = a[1] & b[0];
@@ -39,7 +39,6 @@ assign mid[12] = a[0] & b[3];
 assign mid[13] = a[1] & b[3];
 assign mid[14] = a[2] & b[3];
 assign mid[15] = a[3] & b[3];
-// init 8 bit integer to store multplication result
 
 // csa
 /*
@@ -53,12 +52,27 @@ step2:
     -> c(i+1)', sum_i
 */
 
+/*
+MAC_4bit MAC0(
+        .a(a),
+        .b(b),
+        .c(c),
+        .result(result),
+        .cout(cout)
+    );
+*/
 
-// sum from mid0 ~ mid 11 (3 8b numbers first)
-
-wire s0, s1, s2, s3, s4, s5;//, s6, s7, s8, s9, s10, s11, s12, s13, s14, s15;
+// do mid from 0 to 11 first
+// 7 bit tmp sum
+wire tmpsum[6:0]; 
 // c0 = 0
-wire c1, c2, c3, c4, c5, c6;//, c7, c8, c9, c10, c11, c12, c13, c14, c15;
+wire ca[5:0];//1, c2, c3, c4, c5, c6;//, c7, c8, c9, c10, c11, c12, c13, c14, c15;
+FA FA0(.a(mid[0]),.b(1'b0),.cin(1'b0),.sum(tmpsum[0]),.cout(ca[0]));
+FA FA1(.a(mid[1]),.b(mid[4]),.cin(1'b0),.sum(tmpsum[1]),.cout(ca[1]));
+FA FA2(.a(mid[2]),.b(mid[5]),.cin(mid[8]),.sum(tmpsum[2]),.cout(ca[2]));
+FA FA3(.a(mid[3]),.b(mid[6]),.cin(mid[9]),.sum(tmpsum[3]),.cout(ca[3]));
+FA FA4(.a(1'b0),.b(mid[7]),.cin(mid[10]),.sum(tmpsum[4]),.cout(ca[4]));
+FA FA5(.a(1'b0),.b(1'b0),.cin(mid[11]),.sum(tmpsum[5]),.cout(ca[5]));
 
 
 

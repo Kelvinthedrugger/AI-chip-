@@ -90,7 +90,9 @@ FA FA11(.a(tmpsum[5]),.b(ca[5]),.cin(cap[4]),.sum(sum0[5]),.cout(cap[5]));
 // pay attention to cap[6] however
 FA FA12(.a(tmpsum[6]),.b(ca[6]),.cin(cap[5]),.sum(sum0[6]),.cout(cap[6])); 
 
+
 // summing the rest pink dots
+// CPA here?
 
 // fill in the previous summation first
 wire re[7:0];
@@ -115,7 +117,6 @@ FA FA18(.a(tmpsum1[2]),.b(ca1[2]),.cin(cap1[1]),.sum(re[5]),.cout(cap1[2]));
 FA FA19(.a(tmpsum1[3]),.b(ca1[3]),.cin(cap1[2]),.sum(re[6]),.cout(cap1[3]));
 assign re[7] = cap1[3]; // carry bit of the last 4 pink dot summation
 
-// CPA
 
 
 

@@ -19,6 +19,7 @@ since we can only do one bit at a time
 
 // produce shifted multipland
 
+// PPG : ok
 // a * b
 // do And operation BIT BY BIT
 // 16 pink dots
@@ -40,7 +41,7 @@ assign mid[13] = a[1] & b[3];
 assign mid[14] = a[2] & b[3];
 assign mid[15] = a[3] & b[3];
 
-// csa
+// CSA
 /*
 3 numbers as a group
 step1: 
@@ -65,8 +66,7 @@ MAC_4bit MAC0(
 // do mid from 0 to 11 first
 // 7 bit tmp sum
 wire tmpsum[6:0]; 
-// c0 = 0
-wire ca[6:0];//1, c2, c3, c4, c5, c6;//, c7, c8, c9, c10, c11, c12, c13, c14, c15;
+wire ca[6:0];
 FA FA0(.a(mid[0]),.b(1'b0),.cin(1'b0),.sum(tmpsum[0]),.cout(ca[0]));
 FA FA1(.a(mid[1]),.b(mid[4]),.cin(1'b0),.sum(tmpsum[1]),.cout(ca[1]));
 FA FA2(.a(mid[2]),.b(mid[5]),.cin(mid[8]),.sum(tmpsum[2]),.cout(ca[2]));

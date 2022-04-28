@@ -1,5 +1,12 @@
 *ref to ..\tutorial\modelSim_tutorial_mit.pdf
 
+
+TAKE OUT A FUCKING PIECE OF PAPER AND WRITE EVERYTHING DOWN
+
+
+
+
+
 Progress: 
   I don't know if FAA.v works, in fact, all the files are possibly deprecated, since there were no test data
 

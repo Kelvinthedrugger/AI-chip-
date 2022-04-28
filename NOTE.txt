@@ -1,5 +1,8 @@
 *ref to ..\tutorial\modelSim_tutorial_mit.pdf
 
+CHECKOUT THE BRANCH BEFORE COPY THE HOMEWORK TO SUBMIT
+
+
 Progress: 
   I don't know if FAA.v works, in fact, all the files are possibly deprecated, since there were no test data
 

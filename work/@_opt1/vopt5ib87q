@@ -12,18 +12,25 @@ n@_opt
 Z2 OL;O;10.1c;51
 Z3 dC:\Users\Kelvin\Desktop\seninfo\AIchipEE\hw4\NEW\AOC_Assignment4\testcircuit
 T_opt1
-V@Vn[e5]0^E]l9?YiZI>6:0
+V0iSNPm?Gg28lL8El>Dg<d1
 04 8 4 work MAC_4bit fast 0
-=1-00d86185e583-626a88ae-330-5ff4
+=1-00d86185e583-626b84fd-1a5-7768
 R1
 n@_opt1
 R2
+T_opt2
+VXZj^dI<_8L`b6H[P5fP`j2
+04 4 4 work MAC_ fast 0
+=1-00d86185e583-626aa66b-28-4074
+R1
+n@_opt2
+R2
+R3
 vFA
-!s100 jG5N:aK<5N:2lL1_c@AS<3
 I3W88>1KUcJ@V4f6nj=F6d2
 VA=^?l^TdCln53;9]G:Cm53
 R3
-Z4 w1651148966
+Z4 w1651213558
 FFA.v
 Z5 8MAC_4bit.v
 Z6 FMAC_4bit.v
@@ -31,11 +38,12 @@ L0 3
 Z7 OL;L;10.1c;51
 r1
 31
-Z8 !s108 1651148971.136000
+Z8 !s108 1651213562.487000
 Z9 !s107 FA.v|HA.v|MAC_4bit.v|
 Z10 !s90 MAC_4bit.v|
 Z11 o-L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
 n@f@a
+!s100 jG5N:aK<5N:2lL1_c@AS<3
 !i10b 1
 !s85 0
 vFAA
@@ -58,7 +66,6 @@ n@f@a@a
 !i10b 1
 !s85 0
 vHA
-!s100 ;mV?L0oLK^@Gf:I6m`LTZ1
 IldV<hi>R[gg:T76;^nl7=1
 VjVbTeDXS3K5<`PK@jKiD[0
 R3
@@ -75,10 +82,30 @@ R9
 R10
 R11
 n@h@a
+!s100 ;mV?L0oLK^@Gf:I6m`LTZ1
+!i10b 1
+!s85 0
+vMAC_
+IT:>RFEbkVJdk7ZZC0mDhm0
+V=1a53j<@f[4TEW_ITnBX20
+R3
+w1651156555
+8MAC_.v
+FMAC_.v
+L0 5
+R7
+r1
+31
+R11
+n@m@a@c_
+!s108 1651156607.052000
+!s107 FA.v|HA.v|MAC_.v|
+!s90 MAC_.v|
+!s100 m4L38B^3SWL=bGGKIQ=bS1
 !i10b 1
 !s85 0
 vMAC_4bit
-I7X0XTfmQe448JN7<P>YHS1
+IEYK:JO_R]Z@ZzXIOG[L>S1
 VG_SH>YK1PUC4ab]N:W4cP0
 R3
 R4
@@ -94,7 +121,7 @@ R10
 R11
 n@m@a@c_4bit
 !i10b 1
-!s100 lhaSU3ja?PNKWfkb9hg^E3
+!s100 YX7Go4L5>gzFDj@E^LTTz1
 !s85 0
 vMAC_4bit_tb
 DXx6 sv_std 3 std 0 22 F[19LRNL:5;XmIFh[XOPn1

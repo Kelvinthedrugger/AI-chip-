@@ -1,6 +1,14 @@
 *ref to ..\tutorial\modelSim_tutorial_mit.pdf
 
+<<<<<<< HEAD
 CHECKOUT THE BRANCH BEFORE COPY THE HOMEWORK TO SUBMIT
+=======
+
+TAKE OUT A FUCKING PIECE OF PAPER AND WRITE EVERYTHING DOWN
+
+
+
+>>>>>>> debug
 
 
 Progress: 

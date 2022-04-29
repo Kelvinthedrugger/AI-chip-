@@ -1,6 +1,4 @@
 # vsim -c MAC_4bit 
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# 
 # //  ModelSim SE-64 10.1c Jul 28 2012 
 # //
 # //  Copyright 1991-2012 Mentor Graphics Corporation

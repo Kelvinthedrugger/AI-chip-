@@ -1,4 +1,6 @@
-# vsim -c MAC_8bit 
+# vsim -c MAC_4bit 
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# 
 # //  ModelSim SE-64 10.1c Jul 28 2012 
 # //
 # //  Copyright 1991-2012 Mentor Graphics Corporation
@@ -8,4 +10,26 @@
 # //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
 # //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
 # //
-# Loading work.MAC_8bit(fast)
+# Loading work.MAC_4bit(fast)
+# vsim -novopt work.MAC_4bit_tb 
+# Loading sv_std.std
+# Loading work.MAC_4bit_tb
+# Refreshing C:/Users/Kelvin/Desktop/seninfo/AIchipEE/hw4/NEW/AOC_Assignment4/testcircuit/work.MAC_4bit
+# Loading work.MAC_4bit
+# Refreshing C:/Users/Kelvin/Desktop/seninfo/AIchipEE/hw4/NEW/AOC_Assignment4/testcircuit/work.FA
+# Loading work.FA
+# Refreshing C:/Users/Kelvin/Desktop/seninfo/AIchipEE/hw4/NEW/AOC_Assignment4/testcircuit/work.HA
+# Loading work.HA
+#                             `;-.          ___,
+# ****************************  `.`\_...._/`.-"`
+# **                        **    \        /      ,
+# **                        **    /()   () \   .' `-._
+# **   Congratulations !!   **   |)  .    ()\ /   _.'
+# **                        **   \  -'-     ,; '. <
+# **   MAC_4bit             **    ;.__     ,;|   > \
+# **   Simulation PASS!!    **   / ,    / ,  |.-'.-'
+# **                        **  (_/    (_/ ,;|.<`
+# **                        **    \    ,     ;-`
+# ****************************     >   \    /
+#                                 (_,-'`> .'
+#                                      (_,'

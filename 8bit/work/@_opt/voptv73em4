@@ -1,0 +1,91 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\Kelvin\Desktop\seninfo\AIchipEE\hw4\NEW\AOC_Assignment4\testcircuit\8bit
+T_opt
+Vg4INgYF8XIRlOk=`W1D@>1
+04 8 4 work MAC_8bit fast 0
+=1-00d86185e583-626baedb-19c-550c
+o-quiet -auto_acc_if_foreign -work work
+n@_opt
+OL;O;10.1c;51
+vFA
+I3W88>1KUcJ@V4f6nj=F6d2
+VA=^?l^TdCln53;9]G:Cm53
+Z1 dC:\Users\Kelvin\Desktop\seninfo\AIchipEE\hw4\NEW\AOC_Assignment4\testcircuit\8bit
+w1651224274
+FFA.v
+Z2 8MAC_8bit.v
+Z3 FMAC_8bit.v
+L0 3
+Z4 OL;L;10.1c;51
+r1
+31
+Z5 !s108 1651224279.178000
+Z6 !s107 FA.v|HA.v|MAC_4bit.v|MAC_8bit.v|
+Z7 !s90 MAC_8bit.v|
+Z8 o-L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
+n@f@a
+!i10b 1
+!s100 jG5N:aK<5N:2lL1_c@AS<3
+!s85 0
+vHA
+IldV<hi>R[gg:T76;^nl7=1
+VjVbTeDXS3K5<`PK@jKiD[0
+R1
+w1651224254
+FHA.v
+R2
+R3
+L0 11
+R4
+r1
+31
+R5
+R6
+R7
+R8
+n@h@a
+!i10b 1
+!s100 ;mV?L0oLK^@Gf:I6m`LTZ1
+!s85 0
+vMAC_4bit
+Ik_=^4eBz8>JoB3DK[7YC40
+VG_SH>YK1PUC4ab]N:W4cP0
+R1
+w1651224224
+FMAC_4bit.v
+R2
+R3
+L0 5
+R4
+r1
+31
+R5
+R6
+R7
+R8
+n@m@a@c_4bit
+!i10b 1
+!s100 Qi9418[3D;RnH@5bz6UWE0
+!s85 0
+vMAC_8bit
+I0Ld`8^d;Of@10;aYM;b[m3
+VzIzB<;`ZbTYo_X@6zC:dV1
+R1
+w1651223913
+R2
+R3
+L0 4
+R4
+r1
+31
+R5
+R6
+R7
+R8
+n@m@a@c_8bit
+!i10b 1
+!s100 Aco5GZ^jMD?eElWfKX:6j2
+!s85 0

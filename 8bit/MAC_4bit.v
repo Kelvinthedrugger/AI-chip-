@@ -24,7 +24,6 @@ since we can only do one bit at a time
 // do And operation BIT BY BIT
 // 16 pink dots
 wire mid[15:0];
-/*
 assign mid[0] = a[0] & b[0];
 assign mid[1] = a[1] & b[0];
 assign mid[2] = a[2] & b[0];
@@ -41,25 +40,6 @@ assign mid[12] = a[0] & b[3];
 assign mid[13] = a[1] & b[3];
 assign mid[14] = a[2] & b[3];
 assign mid[15] = a[3] & b[3];
-*/
-
-and and0(mid[0],a[0],b[0]);
-and and1(mid[1],a[1],b[0]);
-and and2(mid[2],a[2],b[0]);
-and and3(mid[3],a[3],b[0]);
-and and4(mid[4],a[0],b[1]);
-and and5(mid[5],a[1],b[1]);
-and and6(mid[6],a[2],b[1]);
-and and7(mid[7],a[3],b[1]);
-and and8(mid[8],a[0],b[2]);
-and and9(mid[9],a[1],b[2]);
-and and10(mid[10],a[2],b[2]);
-and and11(mid[11],a[3],b[2]);
-and and12(mid[12],a[0],b[3]);
-and and13(mid[13],a[1],b[3]);
-and and14(mid[14],a[2],b[3]);
-and and15(mid[15],a[3],b[3]);
-
 
 // CSA
 /*
@@ -181,4 +161,5 @@ FA FA31(.a(1'b0),.b(c[11]),.cin(car[10]),.sum(result[11]),.cout(cout));
 
 
 endmodule
+
 

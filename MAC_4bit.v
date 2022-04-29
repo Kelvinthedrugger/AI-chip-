@@ -87,7 +87,11 @@ FA FA5(.a(1'b0),.b(1'b0),.cin(mid[11]),.sum(tmpsum[5]),.cout(ca[5]));
 // sum0: 7 bit, summation of 12 pink dots: mid[11:0]
 wire sum0[6:0];
 wire cap[6:0]; // carry
+// HA0: b(0), since there is no previous bit
 HA HA0(.a(tmpsum[0]),.b(1'b0),.sum(sum0[0]),.carry(cap[0]));
+
+// FA7: b(ca[0]), by definition of step 2 in CSA
+// FA7: cin(cap[0]), since it's the carry from previous bit
 FA FA7(.a(tmpsum[1]),.b(ca[0]),.cin(cap[0]),.sum(sum0[1]),.cout(cap[1]));
 FA FA8(.a(tmpsum[2]),.b(ca[1]),.cin(cap[1]),.sum(sum0[2]),.cout(cap[2]));
 FA FA9(.a(tmpsum[3]),.b(ca[2]),.cin(cap[2]),.sum(sum0[3]),.cout(cap[3]));
@@ -113,12 +117,16 @@ wire tmpsum1[3:0];
 wire ca1[3:0];
 
 // should be CPA
+// step1
 // calculate Sumxy
 HA HA1(.a(sum0[3]),.b(mid[12]),.sum(tmpsum1[0]),.carry(ca1[0]));
 FA FA14(.a(sum0[4]),.b(mid[13]),.cin(ca1[0]),.sum(tmpsum1[1]),.cout(ca1[1]));
 FA FA15(.a(sum0[5]),.b(mid[14]),.cin(ca1[1]),.sum(tmpsum1[2]),.cout(ca1[2]));
+// ca1[3] is not used ??
 FA FA16(.a(sum0[6]),.b(mid[15]),.cin(ca1[2]),.sum(tmpsum1[3]),.cout(ca1[3]));
 
+
+// step2
 wire cap1[4:0];
 // zi = 0 here
 // calculate Sumxyz = Sumxy + z
@@ -126,7 +134,7 @@ HA HA2(.a(tmpsum1[0]),.b(1'b0),.sum(re[3]),.carry(cap1[0]));
 FA FA17(.a(tmpsum1[1]),.b(1'b0),.cin(cap1[0]),.sum(re[4]),.cout(cap1[1])); 
 FA FA18(.a(tmpsum1[2]),.b(1'b0),.cin(cap1[1]),.sum(re[5]),.cout(cap1[2]));
 FA FA19(.a(tmpsum1[3]),.b(1'b0),.cin(cap1[2]),.sum(re[6]),.cout(cap1[3]));
-FA FA20(.a(cap[6]),.b(1'b0),.cin(cap1[3]),.sum(re[7]),.cout(cap1[4]));
+FA FA20(.a(cap[6]),.b(/*1'b0*/ca1[3]),.cin(cap1[3]),.sum(re[7]),.cout(cap1[4])); // cap1[4] overflow 8-bit integer, just neglect
 
 // end of multiplication
 

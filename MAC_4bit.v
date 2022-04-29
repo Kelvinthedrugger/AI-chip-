@@ -63,10 +63,13 @@ MAC_4bit MAC0(
     );
 */
 
+// CSA
 // do mid from 0 to 11 first
 // 7 bit tmp sum
 wire tmpsum[6:0]; 
 wire ca[6:0];
+// ca[0] is guaranteed to be 0, 
+// put here so that it's less prone to error
 FA FA0(.a(mid[0]),.b(1'b0),.cin(1'b0),.sum(tmpsum[0]),.cout(ca[0]));
 FA FA1(.a(mid[1]),.b(mid[4]),.cin(1'b0),.sum(tmpsum[1]),.cout(ca[1]));
 FA FA2(.a(mid[2]),.b(mid[5]),.cin(mid[8]),.sum(tmpsum[2]),.cout(ca[2]));
@@ -78,17 +81,17 @@ FA FA5(.a(1'b0),.b(1'b0),.cin(mid[11]),.sum(tmpsum[5]),.cout(ca[5]));
 FA FA6(.a(1'b0),.b(1'b0),.cin(ca[5]),.sum(tmpsum[6]),.cout(ca[6]));
 
 // summing tmpsum first
-// sum0: 7 bit
+// sum0: 7 bit, summation of 12 pink dots: mid[11:0]
 wire sum0[6:0];
 wire cap[6:0]; // carry
-HA HA0(.a(tmpsum[0]),.b(ca[0]),.sum(sum0[0]),.carry(cap[0]));
-FA FA7(.a(tmpsum[1]),.b(ca[1]),.cin(cap[0]),.sum(sum0[1]),.cout(cap[1]));
-FA FA8(.a(tmpsum[2]),.b(ca[2]),.cin(cap[1]),.sum(sum0[2]),.cout(cap[2]));
-FA FA9(.a(tmpsum[3]),.b(ca[3]),.cin(cap[2]),.sum(sum0[3]),.cout(cap[3]));
-FA FA10(.a(tmpsum[4]),.b(ca[4]),.cin(cap[3]),.sum(sum0[4]),.cout(cap[4]));
-FA FA11(.a(tmpsum[5]),.b(ca[5]),.cin(cap[4]),.sum(sum0[5]),.cout(cap[5]));
+HA HA0(.a(tmpsum[0]),.b(1'b0),.sum(sum0[0]),.carry(cap[0]));
+FA FA7(.a(tmpsum[1]),.b(ca[0]),.cin(cap[0]),.sum(sum0[1]),.cout(cap[1]));
+FA FA8(.a(tmpsum[2]),.b(ca[1]),.cin(cap[1]),.sum(sum0[2]),.cout(cap[2]));
+FA FA9(.a(tmpsum[3]),.b(ca[2]),.cin(cap[2]),.sum(sum0[3]),.cout(cap[3]));
+FA FA10(.a(tmpsum[4]),.b(ca[3]),.cin(cap[3]),.sum(sum0[4]),.cout(cap[4]));
+FA FA11(.a(tmpsum[5]),.b(ca[4]),.cin(cap[4]),.sum(sum0[5]),.cout(cap[5]));
 // pay attention to cap[6] however
-FA FA12(.a(tmpsum[6]),.b(ca[6]),.cin(cap[5]),.sum(sum0[6]),.cout(cap[6])); 
+FA FA12(.a(tmpsum[6]),.b(ca[5]),.cin(cap[5]),.sum(sum0[6]),.cout(cap[6])); 
 
 
 // summing the rest pink dots
@@ -105,28 +108,43 @@ assign re[2] = sum0[2];
 wire tmpsum1[3:0];
 wire ca1[3:0];
 
-FA FA13(.a(sum0[3]),.b(mid[12]),.cin(1'b0),.sum(tmpsum1[0]),.cout(ca1[0]));
-FA FA14(.a(sum0[4]),.b(mid[13]),.cin(1'b0),.sum(tmpsum1[1]),.cout(ca1[1]));
-FA FA15(.a(sum0[5]),.b(mid[14]),.cin(1'b0),.sum(tmpsum1[2]),.cout(ca1[2]));
-FA FA16(.a(sum0[6]),.b(mid[15]),.cin(1'b0),.sum(tmpsum1[3]),.cout(ca1[3]));
+// should be CPA
 
-wire cap1[3:0];
-HA HA1(.a(tmpsum1[0]),.b(ca1[0]),.sum(re[3]),.carry(cap1[0]));
-FA FA17(.a(tmpsum1[1]),.b(ca1[1]),.cin(cap1[0]),.sum(re[4]),.cout(cap1[1])); 
-FA FA18(.a(tmpsum1[2]),.b(ca1[2]),.cin(cap1[1]),.sum(re[5]),.cout(cap1[2]));
-FA FA19(.a(tmpsum1[3]),.b(ca1[3]),.cin(cap1[2]),.sum(re[6]),.cout(cap1[3]));
-assign re[7] = cap1[3]; // carry bit of the last 4 pink dot summation
+HA HA1(.a(sum0[3]),.b(mid[12]),.sum(tmpsum1[0]),.carry(ca1[0]));
+FA FA14(.a(sum0[4]),.b(mid[13]),.cin(ca1[0]),.sum(tmpsum1[1]),.cout(ca1[1]));
+FA FA15(.a(sum0[5]),.b(mid[14]),.cin(ca1[1]),.sum(tmpsum1[2]),.cout(ca1[2]));
+FA FA16(.a(sum0[6]),.b(mid[15]),.cin(ca1[2]),.sum(tmpsum1[3]),.cout(ca1[3]));
 
+wire cap1[4:0];
+// zi = 0 here
+HA HA2(.a(tmpsum1[0]),.b(1'b0),.sum(re[3]),.carry(cap1[0]));
+FA FA17(.a(tmpsum1[1]),.b(1'b0),.cin(cap1[0]),.sum(re[4]),.cout(cap1[1])); 
+FA FA18(.a(tmpsum1[2]),.b(1'b0),.cin(cap1[1]),.sum(re[5]),.cout(cap1[2]));
+FA FA19(.a(tmpsum1[3]),.b(1'b0),.cin(cap1[2]),.sum(re[6]),.cout(cap1[3]));
+FA FA20(.a(cap[6]),.b(1'b0),.cin(cap1[3]),.sum(re[7]),.cout(cap1[4]));
 
-
-
-
-
-
+// end of multiplication
 
 
+// re[7:0]: previous summation result, 8 bit
 
+// summing c[11:0] and re[7:0] to result[11:0]
 
+// declare carry
+wire car[10:0];
+HA HA3(.a(re[0]),.b(c[0]),.sum(result[0]),.carry(car[0]));
+FA FA21(.a(re[1]),.b(c[1]),.cin(car[0]),.sum(result[1]),.cout(car[1])); 
+FA FA22(.a(re[2]),.b(c[2]),.cin(car[1]),.sum(result[2]),.cout(car[2]));
+FA FA23(.a(re[3]),.b(c[3]),.cin(car[2]),.sum(result[3]),.cout(car[3]));
+FA FA24(.a(re[4]),.b(c[4]),.cin(car[3]),.sum(result[4]),.cout(car[4]));
+FA FA25(.a(re[5]),.b(c[5]),.cin(car[4]),.sum(result[5]),.cout(car[5]));
+FA FA26(.a(re[6]),.b(c[6]),.cin(car[5]),.sum(result[6]),.cout(car[6]));
+FA FA27(.a(re[7]),.b(c[7]),.cin(car[6]),.sum(result[7]),.cout(car[7]));
+FA FA28(.a(1'b0),.b(c[8]),.cin(car[7]),.sum(result[8]),.cout(car[8]));
+FA FA29(.a(1'b0),.b(c[9]),.cin(car[8]),.sum(result[9]),.cout(car[9]));
+FA FA30(.a(1'b0),.b(c[10]),.cin(car[9]),.sum(result[10]),.cout(car[10]));
+// cout is deemed as noise 
+FA FA31(.a(1'b0),.b(c[11]),.cin(car[10]),.sum(result[11]),.cout(cout)); 
 
 
 endmodule
